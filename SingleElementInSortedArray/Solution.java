@@ -4,18 +4,10 @@ class Solution {
         int r = nums.length - 1;
         while (l < r) {
             m = l + (r - l) / 2;
-            if (m % 2 == 0) {
-                if (nums[m + 1] != nums[m]) {
-                    r = m;
-                } else {
-                    l = m + 1;
-                }
+            if (nums[m] == nums[m ^ 1]) {
+                l = m + 1;
             } else {
-                if (nums[m + 1] == nums[m]) {
-                    r = m;
-                } else {
-                    l = m + 1;
-                }
+                r = m;
             }
         }
         return nums[l];
